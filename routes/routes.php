@@ -1,14 +1,17 @@
 <?php
 
 $routesArray = explode("/", $_SERVER['REQUEST_URI']);
-$filteredRoutes = array_filter($routesArray);
-$ReindexRoutes = array_values($filteredRoutes);
-$lastRoute = end($ReindexRoutes);
 
-$json = array(
-    "endpoint"=>$lastRoute,
-);
+echo 'Metodo de la solicitud: '.$_SERVER['REQUEST_METHOD'];
 
-echo json_encode($json, true);
+echo '<br>';
+
+$pos = array_search('api', $routesArray) + 1;
+
+$curRouteArray = array_slice($routesArray, $pos, );
+
+$curRoute = implode('/', $curRouteArray);
+
+print_r('Ruta actual: '.$curRoute);
    
 ?>
